@@ -13,12 +13,20 @@ public class BasicMovement : MonoBehaviour
    public float attackRange = 0.5f;
    public int attackDamage = 40;
    public LayerMask enemyLayers;
-    
+   public int MaxHealth = 100;
+   public int curretHealth;
+   public HealthBar healthBar;
+
   // attack function
 private void drowSelected(){
   if (AttackPoint == null) return;
   Gizmos.DrawWireSphere(AttackPoint.position,attackRange);
 }
+    void TakeDamage(int damage)
+    {
+        curretHealth -= damage;
+      //  healthBar.SetHealth(currentHealth);
+    }
 
     void Attack()
     {
@@ -32,7 +40,11 @@ private void drowSelected(){
       }
     }
 
-    
+    void Start()
+    {
+      curretHealth = MaxHealth;
+    //  healthBar.SetMaxHealth(MaxHealth);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +57,11 @@ private void drowSelected(){
       if (Input.GetButton("Fire") || Input.GetMouseButtonDown(0)) {
         Attack();
         
+      }
+
+      if (Input.GetKeyDown(KeyCode.Space))
+      {
+        TakeDamage(20);
       }
       animator.SetFloat("Horizontal", movement.x);
       animator.SetFloat("Vertical", movement.y);
