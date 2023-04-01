@@ -25,7 +25,7 @@ private void drowSelected(){
     void TakeDamage(int damage)
     {
         curretHealth -= damage;
-      //  healthBar.SetHealth(currentHealth);
+       healthBar.SetHealth(curretHealth);
     }
 
     void Attack()
@@ -43,7 +43,7 @@ private void drowSelected(){
     void Start()
     {
       curretHealth = MaxHealth;
-    //  healthBar.SetMaxHealth(MaxHealth);
+      healthBar.SetMaxHealth(MaxHealth);
     }
     // Update is called once per frame
     void Update()
