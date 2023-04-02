@@ -22,10 +22,24 @@ private void drowSelected(){
   if (AttackPoint == null) return;
   Gizmos.DrawWireSphere(AttackPoint.position,attackRange);
 }
+
+void Die()
+    {
+        Debug.Log("Hero knight dead");
+       animator.SetBool("Isdead", true);
+       
+       
+    }
     void TakeDamage(int damage)
     {
         curretHealth -= damage;
-       healthBar.SetHealth(curretHealth);
+        animator.SetTrigger("TakeHit");
+        healthBar.SetHealth(curretHealth);
+        
+        if (curretHealth <= 0)
+        {
+            Die();
+        }
     }
 
     void Attack()
