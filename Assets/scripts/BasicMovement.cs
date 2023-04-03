@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class BasicMovement : MonoBehaviour
@@ -39,6 +40,7 @@ void Die()
         if (curretHealth <= 0)
         {
             Die();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
