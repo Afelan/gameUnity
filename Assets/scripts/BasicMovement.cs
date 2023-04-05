@@ -40,7 +40,8 @@ void Die()
         if (curretHealth <= 0)
         {
             Die();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+           //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
