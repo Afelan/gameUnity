@@ -17,6 +17,7 @@ public class BasicMovement : MonoBehaviour
    public int MaxHealth = 100;
    public int curretHealth;
    public HealthBar healthBar;
+   public GameObject deathScreen;
 
   // attack function
 private void drowSelected(){
@@ -29,6 +30,11 @@ void Die()
         Debug.Log("Hero knight dead");
        animator.SetBool("Isdead", true);
        
+       if (!deathScreen.activeSelf)
+            {
+                deathScreen.SetActive(true);
+                Time.timeScale=0;
+            }
        
     }
     void TakeDamage(int damage)
@@ -59,6 +65,7 @@ void Die()
 
     void Start()
     {
+      Time.timeScale=1f;
       curretHealth = MaxHealth;
       healthBar.SetMaxHealth(MaxHealth);
     }
