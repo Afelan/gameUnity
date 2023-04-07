@@ -28,10 +28,11 @@ private void drowSelected(){
 void Die()
     {
         Debug.Log("Hero knight dead");
-       animator.SetBool("Isdead", true);
+       
        
        if (!deathScreen.activeSelf)
             {
+                
                 deathScreen.SetActive(true);
                 Time.timeScale=0;
             }
@@ -39,14 +40,15 @@ void Die()
     }
     void TakeDamage(int damage)
     {
+        attackDamage += 20;
         curretHealth -= damage;
         animator.SetTrigger("TakeHit");
         healthBar.SetHealth(curretHealth);
         
         if (curretHealth <= 0)
         {
-            Die();
-            
+            animator.SetBool("Isdead", true);
+            Invoke("Die", 1);
            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
