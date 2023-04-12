@@ -2738,6 +2738,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5120522379603536393, guid: 494bcae74507cd3448563b49dca5f7c3, type: 3}
+      propertyPath: gradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120522379603536393, guid: 494bcae74507cd3448563b49dca5f7c3, type: 3}
+      propertyPath: gradient.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 494bcae74507cd3448563b49dca5f7c3, type: 3}
 --- !u!1001 &7910411278680002878

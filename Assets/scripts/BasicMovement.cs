@@ -18,7 +18,8 @@ public class BasicMovement : MonoBehaviour
    public int curretHealth;
    public HealthBar healthBar;
    public GameObject deathScreen;
-
+   public float AttackRate = 2f;
+   float nextAttackTime = 0f;
   // attack function
 private void drowSelected(){
   if (AttackPoint == null) return;
@@ -80,9 +81,13 @@ void Die()
         movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
       }
       
-      if (Input.GetButton("Fire") || Input.GetMouseButtonDown(0)) {
-        Attack();
-        
+      if(Time.time >= nextAttackTime)
+      {
+        if (Input.GetButton("Fire") || Input.GetMouseButtonDown(0)) {
+          Attack();
+          nextAttackTime = Time.time + 1f / AttackRate;
+          
+        }
       }
 
       if (Input.GetKeyDown(KeyCode.Space))
